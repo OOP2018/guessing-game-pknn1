@@ -24,7 +24,7 @@ public class GuessingGame extends NumberGame {
     private int guessCount;
 
     public GuessingGame() {
-        this(10);
+        this(110);
     }
 
     /**

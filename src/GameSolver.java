@@ -36,13 +36,13 @@ public class GameSolver {
 
             if (response.contains("large")) {
                 upBound = guess;
-                guess = (upBound - lowBound) / 2 + 1;
             } else if (response.contains("small")) {
                 lowBound = guess;
-                guess = (upBound - lowBound) / 2 + lowBound;
             } else {
                 guess = rand.nextInt(upBound) + 1;
+                return guess;
             }
+            guess = (upBound - lowBound) / 2 + lowBound;
 
         }
         return guess;
