@@ -18,7 +18,6 @@ public class GdGame extends NumberGame {
     private int count;
 
     /** count guesses */
-//TODO add an attribute to count guesses
 
     /**
      * Initialize a new default game.
