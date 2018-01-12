@@ -8,11 +8,15 @@ import java.util.Random;
 public class SampleGame extends NumberGame {
     /** upper bound for secret number */
     private int upperBound;
-    /** the solution to the game */
+    /**
+     * the solution t the game
+     */
     private int secret;
-    
-	/** count guesses */
-//TODO add an attribute to count guesses
+
+    /**
+     * count guesses
+     */
+    private int guessCount;
 
     /** Initialize a new default game. */
     public SampleGame()
@@ -38,6 +42,7 @@ public class SampleGame extends NumberGame {
      * @return true if guess is correct, false otherwise
      */
     public boolean guess(int number) {
+        guessCount++;
     	if (number == secret) {
     		setMessage("Correct! The decimal value is "+secret);
     		return true;
@@ -56,14 +61,21 @@ public class SampleGame extends NumberGame {
     	}
     	return false;
     }
-	
+
 	/** Get the game upper bound. */
 	public int getUpperBound() {
-		return upperBound;
+        return upperBound;
 	}
-    
+
+
+
     @Override
     public String toString() {
-    	return "Convert a number from hexadecimal to decimal.";
+        return "Convert a number from hexadecimal to decimal.";
+    }
+
+    @Override
+    public int getCount() {
+        return this.guessCount;
     }
 }

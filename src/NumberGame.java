@@ -22,7 +22,6 @@ public class NumberGame {
      * @return true if correct, false otherwise
      */
     public boolean guess(int answer) {
-		// TODO your subclass should override this method
 		message = "Sorry, that's not correct";
 		return false;
     }
@@ -40,10 +39,10 @@ public class NumberGame {
 	
 	/**
 	 * Set a message about the game.
-	 * @param newmessage a string about game or most recent guess.
+     * @param newMessage a string about game or most recent guess.
 	 */
-	public void setMessage(String newmessage) {
-		this.message = newmessage;
+    public void setMessage(String newMessage) {
+        this.message = newMessage;
 	}
 	
 	/** 
@@ -53,6 +52,15 @@ public class NumberGame {
 	public int getUpperBound() {
 		return Integer.MAX_VALUE;  // not very helpful :-)
 	}
+
+    /**
+     * Get the count from the guess counter.
+     *
+     * @return count for guess.
+     */
+    public int getCount() {
+        return 0;
+    }
     
     /**
      * toString describes the game or problem.
