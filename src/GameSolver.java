@@ -40,7 +40,7 @@ public class GameSolver {
                 lowBound = guess;
             } else {
                 guess = rand.nextInt(upBound) + 1;
-                return guess;
+                continue;
             }
             guess = (upBound - lowBound) / 2 + lowBound;
 
