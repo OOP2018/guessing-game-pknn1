@@ -1,8 +1,8 @@
 import java.util.Random; 
 /**
  * Example guessing game.
- * 
- * @author Your Name
+ *
+ * @author Pakanon Pantisawat
  * @version 2018.01.11
  */
 public class SampleGame extends NumberGame {
