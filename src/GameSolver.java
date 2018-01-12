@@ -34,6 +34,11 @@ public class GameSolver {
             String response = game.getMessage();
             System.out.println(response);
 
+            if (upBound - lowBound == 1) {
+                guess = lowBound + 1;
+                continue;
+            }
+
             if (response.contains("large")) {
                 upBound = guess;
             } else if (response.contains("small")) {
