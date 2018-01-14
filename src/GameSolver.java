@@ -34,11 +34,6 @@ public class GameSolver {
             String response = game.getMessage();
             System.out.println(response);
 
-            if (upBound - lowBound == 1) {
-                guess = lowBound + 1;
-                continue;
-            }
-
             if (response.contains("large")) {
                 upBound = guess;
             } else if (response.contains("small")) {
@@ -47,7 +42,7 @@ public class GameSolver {
                 guess = rand.nextInt(upBound) + 1;
                 continue;
             }
-            guess = (upBound - lowBound) / 2 + lowBound;
+            guess = (int) Math.ceil((upBound - lowBound) / 2) + lowBound;
 
         }
         return guess;

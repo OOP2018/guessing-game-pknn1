@@ -7,7 +7,7 @@ import java.util.Random;
  * @version 2018.01.12
  */
 
-public class GuessingGame extends NumberGame {
+public class PakanonGame extends NumberGame {
     /**
      * secret number upper bound.
      */
@@ -23,7 +23,7 @@ public class GuessingGame extends NumberGame {
      */
     private int guessCount;
 
-    public GuessingGame() {
+    public PakanonGame() {
         this(110);
     }
 
@@ -32,11 +32,10 @@ public class GuessingGame extends NumberGame {
      *
      * @param upperBound maximum value of the secret number. upperBound must be > 1
      */
-    GuessingGame(int upperBound) {
+    PakanonGame(int upperBound) {
         this.guessCount = 0;
         if (upperBound <= 1) {
-            System.err.println("Upper bound must be larger than 1.");
-            return;
+            throw new IllegalArgumentException("Upper bound must be larger than 1.");
         }
         this.upperBound = upperBound;
         long seed = System.nanoTime();
