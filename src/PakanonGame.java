@@ -23,6 +23,9 @@ public class PakanonGame extends NumberGame {
      */
     private int guessCount;
 
+    /**
+     * Default constructor : Using when user not set the upperbound
+     */
     public PakanonGame() {
         this(110);
     }
@@ -32,7 +35,7 @@ public class PakanonGame extends NumberGame {
      *
      * @param upperBound maximum value of the secret number. upperBound must be > 1
      */
-    PakanonGame(int upperBound) {
+    public PakanonGame(int upperBound) {
         this.guessCount = 0;
         if (upperBound <= 1) {
             throw new IllegalArgumentException("Upper bound must be larger than 1.");

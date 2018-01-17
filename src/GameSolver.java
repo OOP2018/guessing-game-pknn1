@@ -1,5 +1,3 @@
-import java.util.Random;
-
 /**
  * An autonomous solver for the guessing game.
  *
@@ -23,11 +21,9 @@ public class GameSolver {
 
         System.out.println(game.getMessage());
 
-        long seed = System.nanoTime();
-        Random rand = new Random(seed);
         int upBound = game.getUpperBound();
         int lowBound = 1;
-        int guess = rand.nextInt(upBound) + 1;
+        int guess = (upBound - lowBound) / 2 + lowBound;
         while (isNotCorrect) {
             System.out.println("My guess: " + guess);
             isNotCorrect = !game.guess(guess);
@@ -38,12 +34,8 @@ public class GameSolver {
                 upBound = guess;
             } else if (response.contains("small")) {
                 lowBound = guess;
-            } else {
-                guess = rand.nextInt(upBound) + 1;
-                continue;
             }
-            guess = (int) Math.ceil((upBound - lowBound) / 2) + lowBound;
-
+            guess = (upBound - lowBound) / 2 + lowBound;
         }
         return guess;
     }
