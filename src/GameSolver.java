@@ -1,3 +1,4 @@
+
 /**
  * An autonomous solver for the guessing game.
  *
@@ -17,25 +18,30 @@ public class GameSolver {
     public int play(NumberGame game) {
         System.out.println(game.toString());
 
-        boolean isNotCorrect = true;
+        boolean isCorrect = false;
 
         System.out.println(game.getMessage());
 
         int upBound = game.getUpperBound();
         int lowBound = 1;
-        int guess = (upBound - lowBound) / 2 + lowBound;
-        while (isNotCorrect) {
-            System.out.println("My guess: " + guess);
-            isNotCorrect = !game.guess(guess);
-            String response = game.getMessage();
-            System.out.println(response);
+        int guess = upBound / 2 + lowBound;
+        while (!isCorrect) {
+
+            isCorrect = game.guess(guess);
+            if (isCorrect) continue;
+
+            String response = game.getMessage().toLowerCase();
 
             if (response.contains("large")) {
                 upBound = guess;
             } else if (response.contains("small")) {
                 lowBound = guess;
             }
-            guess = (upBound - lowBound) / 2 + lowBound;
+
+            if (upBound < lowBound) System.exit(0);
+
+            int diff = upBound - lowBound;
+            guess = diff / 2 + lowBound;
         }
         return guess;
     }

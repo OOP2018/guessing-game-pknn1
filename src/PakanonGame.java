@@ -64,7 +64,7 @@ public class PakanonGame extends NumberGame {
         else if (diff > 40) message += "TOOOOOO ";
         else if (diff > 30) message += "TOOOO ";
         else if (diff > 20) message += "TOO ";
-        else if (diff < 3) message += "Oooh! That's a bit ";
+        else if (diff < 2) message += "a bit ";
 
         if (answer > secret) message += "large.";
         else if (answer < secret) message += "small.";
