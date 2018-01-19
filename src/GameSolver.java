@@ -33,9 +33,9 @@ public class GameSolver {
             String response = game.getMessage().toLowerCase();
 
             if (response.contains("large")) {
-                upBound = guess;
+                upBound = guess - 1;
             } else if (response.contains("small")) {
-                lowBound = guess;
+                lowBound = guess + 1;
             }
 
             if (upBound < lowBound) System.exit(0);
