@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="455.0" prefWidth="434.0" xmlns="http://javafx.com/javafx/9.0.4"
+            fx:controller="GuessingUIController">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Menu">
+                    <items>
+                        <MenuItem fx:id="randomButton" mnemonicParsing="false" onAction="#menuHandler" text="Random"/>
+                        <MenuItem fx:id="guideButton" mnemonicParsing="false" onAction="#menuHandler"
+                                  text="Guessing Supervisor"/>
+                        <SeparatorMenuItem mnemonicParsing="false" onAction="#menuHandler"/>
+                        <MenuItem mnemonicParsing="false" onAction="#menuHandler" text="Exit"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <bottom>
+        <FlowPane alignment="CENTER" hgap="40.0" prefHeight="69.0" prefWidth="400.0" vgap="20.0"
+                  BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="guessButton" mnemonicParsing="false" onAction="#buttonHandler" text="GUESS"/>
+                <Button mnemonicParsing="false" onAction="#buttonHandler" text="SURRENDER"/>
+            </children>
+        </FlowPane>
+    </bottom>
+    <center>
+        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Guessing Game">
+                    <font>
+                        <Font size="26.0"/>
+                    </font>
+                </Label>
+                <Label text="MMXVII">
+                    <font>
+                        <Font size="33.0"/>
+                    </font>
+                </Label>
+                <FlowPane alignment="CENTER" hgap="10.0" prefHeight="50.0" prefWidth="400.0">
+                    <children>
+                        <Label text="I'm Thinking About number between"/>
+                        <Label text="1"/>
+                        <Label text="-"/>
+                        <TextField fx:id="to" prefHeight="27.0" prefWidth="49.0" promptText="to"/>
+                    </children>
+                </FlowPane>
+                <Label fx:id="result" alignment="CENTER" contentDisplay="CENTER" prefHeight="23.0" prefWidth="317.0"
+                       textAlignment="CENTER">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="inputField" promptText="Guess">
+                    <VBox.margin>
+                        <Insets left="30.0" right="30.0"/>
+                    </VBox.margin>
+                </TextField>
+                <FlowPane fx:id="supervisor" alignment="CENTER" hgap="20.0" prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <Label alignment="CENTER" text="Could you try" textAlignment="CENTER">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="tryFrom" alignment="CENTER" text="100" textAlignment="CENTER">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" text="-" textAlignment="CENTER">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="tryTo" alignment="CENTER" text="100" textAlignment="CENTER">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                    </padding>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </FlowPane>
+            </children>
+            <padding>
+                <Insets top="20.0"/>
+            </padding>
+        </VBox>
+    </center>
+</BorderPane>

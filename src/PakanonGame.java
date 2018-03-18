@@ -45,6 +45,7 @@ public class PakanonGame extends NumberGame {
         Random rand = new Random(seed);
         this.secret = rand.nextInt(upperBound) + 1;
         super.setMessage("I'm thinking of a number between 1 and " + upperBound + ".");
+        System.out.println(secret);
     }
 
     @Override
@@ -60,23 +61,29 @@ public class PakanonGame extends NumberGame {
 
         String message = "Your guessing is ";
 
-        if (diff > 50) message += "Ridiculously ";
-        else if (diff > 40) message += "TOOOOOO ";
-        else if (diff > 30) message += "TOOOO ";
-        else if (diff > 20) message += "TOO ";
-        else if (diff < 2) message += "a bit ";
+        if (diff > 30) message += "ridiculously ";
+        else if (diff > 15) message += "way too ";
+        else if (diff > 10) message += "too ";
+        else if (diff > 2) message += "a bit ";
+        else if (diff <= 2) message += "itty bitty ";
 
         if (answer > secret) message += "large.";
         else if (answer < secret) message += "small.";
 
-        super.setMessage(message);
 
+        super.setMessage(message);
+        setChanged();
+        notifyObservers();
         return false;
     }
 
     @Override
     public int getUpperBound() {
         return this.upperBound;
+    }
+
+    public void setUpperBound(int upperBound) {
+        this.upperBound = upperBound;
     }
 
     @Override
@@ -88,4 +95,5 @@ public class PakanonGame extends NumberGame {
     public int getCount() {
         return guessCount;
     }
+
 }
